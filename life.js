@@ -1,5 +1,9 @@
-const COLS = 96, ROWS = 56, CELL = 10;
+const CELL = 10;
 const canvas = document.getElementById('board');
+// Cell count follows viewport width so a cell stays ~11 CSS px — tappable on a phone.
+// ponytail: fixed at load; rotating just rescales the canvas rather than reflowing the grid.
+const COLS = Math.max(24, Math.min(96, Math.round(canvas.clientWidth / 11)));
+const ROWS = Math.round(COLS * 0.58);
 const ctx = canvas.getContext('2d');
 let grid = new Uint8Array(COLS * ROWS);
 let gen = 0, timer = null;
