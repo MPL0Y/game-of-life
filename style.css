@@ -1,0 +1,84 @@
+:root {
+  --ground: #111111;
+  --well: #18181b;
+  --raised: #232326;
+  --raised-hover: #2c2c30;
+  --text: #ffffff;
+  --body: #e8e8e8;
+  --muted: #888888;
+  --on-raised: #f5f5f5;
+  --accent: #ff4d6d;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 2rem 1rem 3rem;
+  background: var(--ground);
+  color: var(--body);
+  font: 400 0.9375rem/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+main { max-width: 1100px; margin: 0 auto; }
+h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+p.lede { margin: 0 0 2rem; font-size: 0.8125rem; color: var(--muted); }
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--well);
+  border-radius: 8px;
+  touch-action: none;
+  cursor: crosshair;
+}
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.625rem;
+  margin-top: 1.5rem;
+}
+button {
+  font: 600 0.8125rem/1 inherit;
+  letter-spacing: -0.02em;
+  color: var(--on-raised);
+  background: var(--raised);
+  border: 0;
+  border-radius: 999px;
+  padding: 0.375rem 0.75rem;
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease;
+}
+button:hover { background: var(--raised-hover); }
+button:focus-visible { outline: 2px solid var(--body); outline-offset: 2px; }
+#toggle { background: var(--accent); color: var(--ground); }
+#toggle:hover { background: var(--accent); }
+.stats {
+  margin-left: auto;
+  font-size: 0.8125rem;
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+.stats span {
+  display: inline-block;
+  transition: transform 350ms cubic-bezier(0.34, 1.38, 0.64, 1), opacity 350ms ease;
+}
+.stats span.tick { transform: translateY(0.45em); opacity: 0; }
+.notes { margin-top: 3rem; max-width: 640px; }
+.notes h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.notes p { margin: 0 0 1rem; }
+.notes ul { margin: 0 0 1rem; padding-left: 1rem; color: var(--muted); }
+.notes li { margin-bottom: 0.375rem; }
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

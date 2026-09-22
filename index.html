@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Life</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>Life</h1>
+  <p class="lede">Conway's rules on a wrapping grid. Click or drag to draw.</p>
+
+  <canvas id="board" aria-label="Game of Life grid"></canvas>
+
+  <div class="controls">
+    <button id="toggle">Start</button>
+    <button id="step">Step</button>
+    <button id="random">Random</button>
+    <button id="clear">Clear</button>
+    <div class="stats">gen <span id="gen">0</span> · live <span id="live">0</span></div>
+  </div>
+
+  <section class="notes">
+    <h2>The rules</h2>
+    <p>Every cell is alive or dead. Each generation, every cell looks at its eight neighbours and the whole grid updates at once:</p>
+    <ul>
+      <li>A live cell with two or three live neighbours stays alive.</li>
+      <li>A live cell with fewer than two, or more than three, dies.</li>
+      <li>A dead cell with exactly three live neighbours becomes alive.</li>
+    </ul>
+    <p>That is all of it. There are no players and no scoring — you set the first generation, and the rules run. John Conway published it in 1970; the interest is that three lines of arithmetic produce patterns that settle, blink forever, crawl across the grid, or never repeat at all. The board here wraps: the left edge neighbours the right, the top neighbours the bottom.</p>
+    <p>Draw a few cells and press start. A row of three blinks. Five cells in the right arrangement — a glider — walks diagonally and keeps walking.</p>
+  </section>
+</main>
+
+<script src="life.js"></script>
+</body>
+</html>
